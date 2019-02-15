@@ -132,136 +132,329 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <h3>前言</h3>
 <p>因为经常会要学习到新的语言，新的框架，不同的语言与不同的框架，均有一些不同的框架、或者语言特色，在对一门语言不熟悉的时候，如何快速上手这一门语言和相当的框架就非常重要了。</p>
 <h3>大纲</h3>
-<p>先不谈具体的语言，罗列一个大纲</p>
-<blockquote>
-<p>基础</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. 基础语法、如何运行
-2. 编程模式（同步，异步，结构，过程等）
-3. 代码的组织
-4. 包管理器的使用
-5. 包的引入
-6. 代码的编译
-7. 语言的常用应用领域
-</pre></div>
-
-
-<blockquote>
-<p>常用函数及库</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. 常用的数据结构及其基本操作
-2. 字符串处理函数
-3. 时间函数
-4. IO函数
-5. 网络函数
-6. 多线程/多进程
-7. 面向对象的写法
-</pre></div>
-
-
-<blockquote>
-<p>特定领域的框架罗列</p>
-</blockquote>
-<div class="highlight"><pre><span></span>见于各个语言
-</pre></div>
-
-
-<blockquote>
-<p>测试、部署待库或者工具</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. 单元测试
-2. 数据伪造
-3. 持续集成
-</pre></div>
-
-
-<h3>以python为例</h3>
-<p>由于我主要是用于web开发，因此下面罗列的框架会较偏于web框架较多一点。</p>
-<blockquote>
-<p>基础</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. 基本语法，命令行执行
-2. 可以同步，也可以异步（gevent, twisted）等，也可以结构化或者过程等
-3. 通过路径导包，系统路径寻址，默认第三方包安装在/site-packages/下面，自带的有个built-in
-4. 使用pip安装，也可以使用virtualenv来管理不同的环境，以给不同的代码仓库使用
-5. import语法
-6. 原生的python不需要编译，但也可以使用p2exe或者pyinstaller打包成可执行成文件
-7. web开发，爬虫开发，运维开发，测试，大数据开发
-</pre></div>
-
-
-<blockquote>
-<p>常用函数</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. list, dict, set, tuple
-2. string, help(string)
-3. datetime, time 
-4. open, print
-5. urllib2/urilib3 第三方库requests, pycurl等
-6. multiprocessing, threading, thread
-7. class A(B,C), metaclass
-</pre></div>
-
-
-<blockquote>
-<p>python的框架</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. WEB框架：django, twisted, flask, tornado等
-2. 日志: logging
-</pre></div>
-
-
-<blockquote>
-<p>python测试</p>
-</blockquote>
-<div class="highlight"><pre><span></span>使用pytest，mock等之类的库
-</pre></div>
-
-
-<blockquote>
-<p>python部署</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. WEB服务器： nginx/apache
-2. wsgi服务器： mode_wsgi, gunicorn, uwsgi
-3. supervisor, fabric等
-</pre></div>
-
-
-<h3>nodejs &amp;&amp; javascript</h3>
-<p>这门新的语言是我最近学的，因此按上面的大纲整理了一下，首先先来认识一下nodejs是什么：</p>
-<p>nodejs = commonJS + io.js，是在基于javascript的V8引擎上，增加了能够执行文件IO、网络IO功能。
-传统的Javascript相对于nodejs来说，少了io.js，但是能够处理dom。</p>
-<blockquote>
-<p>nodejs基础</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. 只能异步，并有多种写法（promise, await等）
-2. nodejs有自己的包管理器npm/yarn等，安装的包可以放在项目下，可以放在公用目录下
-3. es6特性可以直接import或者require，浏览器内需要&amp;lt;&amp;gt;这样引入，顺序有影响
-4. webpack/gulp等之类的，将前端的代码编译(less-&amp;gt;css, es6js—&amp;gt;js)合并，组织打包等
-5. js是前端应用的多；nodejs也可以做一些爬虫或者后端服务器
-</pre></div>
-
-
-<blockquote>
-<p>常见函数</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. new Array(); new Object();
-2. 查看文档：js的字符串处理
-3. new Date()，注意这里的日期要少一个月，好像有ISODate也可以将字符串转换成日期对象
-4. nodejs需要使用iojs, console
-5. js直接使用new XMLRequest(); fetch; nodejs可以直接使用开源的request等库
-6. cluster
-7. ES6新特性有class与继承，之前需要使用prototype来写类方法
-</pre></div>
-
-
+<p>经过自己的整理，我觉得学习一门语言，可能通过下面的这个大纲来学习，会更快的上手。</p>
+<p><strong>20190215更新：经常自己的实践，上述大纲确实有益于快速掌握一门新语言，如果以后有新学习语言，本文也会继续更新。</strong></p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>知识点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td>基础语法，如何运行</td>
+</tr>
+<tr>
+<td></td>
+<td>编程模式（同步、异步、结构、类等)</td>
+</tr>
+<tr>
+<td></td>
+<td>代码的组织</td>
+</tr>
+<tr>
+<td></td>
+<td>包管理器及包的引入</td>
+</tr>
+<tr>
+<td></td>
+<td>代码的编译</td>
+</tr>
+<tr>
+<td></td>
+<td>面向对象编程(OOP)</td>
+</tr>
+<tr>
+<td></td>
+<td>语言的常见应用领域</td>
+</tr>
+<tr>
+<td>Builtin</td>
+<td>常用的数据结构，如列表、字典(哈希表）等</td>
+</tr>
+<tr>
+<td></td>
+<td>字符串处理方法</td>
+</tr>
+<tr>
+<td></td>
+<td>时间方法</td>
+</tr>
+<tr>
+<td></td>
+<td>IO、网络方法</td>
+</tr>
+<tr>
+<td></td>
+<td>多进/线程</td>
+</tr>
+<tr>
+<td>ThirdPackages</td>
+<td>常用的第三方包</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>单元测试</td>
+</tr>
+<tr>
+<td></td>
+<td>数据伪造</td>
+</tr>
+<tr>
+<td></td>
+<td>集成测试、代码覆盖</td>
+</tr>
+<tr>
+<td>Programming</td>
+<td>IDE</td>
+</tr>
+<tr>
+<td></td>
+<td>静态检测、自动格式化</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>部署方式</td>
+</tr>
+<tr>
+<td></td>
+<td>日志</td>
+</tr>
+</tbody>
+</table>
+<h3>Python</h3>
+<p><em>由于我主要是用于web开发，因此下面罗列的会较偏于web框架较多一点。</em></p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>知识点</th>
+<th>Python(2.x)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td>基础语法，如何运行</td>
+<td>可以python进入shell直接交互，也可以简单的执行文件</td>
+</tr>
+<tr>
+<td></td>
+<td>编程模式（同步、异步、结构、类等)</td>
+<td>可同步，可异步</td>
+</tr>
+<tr>
+<td></td>
+<td>代码的组织</td>
+<td>第三方包默认安装在<code>site-package</code>目录下，项目组织没有固定模板，具体可以根据使用框架来定</td>
+</tr>
+<tr>
+<td></td>
+<td>包管理器及包的引入</td>
+<td>通常使用<code>pip</code></td>
+</tr>
+<tr>
+<td></td>
+<td>代码的编译</td>
+<td>python不需要编译，但也有<code>p2exe</code>及<code>pyinstaller</code>将python打包成可执行文件</td>
+</tr>
+<tr>
+<td></td>
+<td>面向对象编程支持(OOP)</td>
+<td><code>metaclass</code>, <code>class</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>语言的常见应用领域</td>
+<td>web开发，爬虫开发，运维开发，测试，大数据开发</td>
+</tr>
+<tr>
+<td>Builtin</td>
+<td>常用的数据结构，如列表、字典(哈希表）等</td>
+<td><code>list</code>, <code>dict</code>, <code>tuple</code>, <code>set</code></td>
+</tr>
+<tr>
+<td></td>
+<td>字符串处理方法</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td></td>
+<td>时间方法</td>
+<td><code>datetime</code>, <code>time</code></td>
+</tr>
+<tr>
+<td></td>
+<td>IO、网络方法</td>
+<td><code>open</code>, <code>urllib</code>，网络库也推荐使用第三方库<code>requests</code></td>
+</tr>
+<tr>
+<td></td>
+<td>多进/线程</td>
+<td><code>multiprocessing</code>, <code>threading</code></td>
+</tr>
+<tr>
+<td>ThirdPackages</td>
+<td>常用的第三方包</td>
+<td><code>django</code>, <code>tornado</code>等</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>单元测试</td>
+<td><code>pytest</code>, <code>unittest</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>数据伪造</td>
+<td><code>mock</code></td>
+</tr>
+<tr>
+<td></td>
+<td>集成测试、代码覆盖</td>
+<td>参考第三方库等</td>
+</tr>
+<tr>
+<td>Programming</td>
+<td>IDE</td>
+<td>推荐pycharm</td>
+</tr>
+<tr>
+<td></td>
+<td>静态检测、自动格式化</td>
+<td><code>pyflake</code>, <code>pystyle</code>, <code>autopep8</code>, <code>flake8</code>等</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>部署方式</td>
+<td>web项目通常由web服务器（nginx或apache) + wsgi服务器启动，进程守护一般用<code>supervisor</code></td>
+</tr>
+<tr>
+<td></td>
+<td>日志</td>
+<td>一般用<code>logging</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Javascript &amp;&amp; NodeJS</h3>
+<p>nodejs = commonJS + io.js，是在基于javascript的V8引擎上，增加了能够执行文件IO、网络IO功能。传统的Javascript相对于nodejs来说，少了io.js，但是能够处理dom。</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>知识点</th>
+<th>Javascript(ES6+)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td>基础语法，如何运行</td>
+<td>可以浏览器内运行，也可以使用node启动shell</td>
+</tr>
+<tr>
+<td></td>
+<td>编程模式（同步、异步、结构、类等)</td>
+<td>只能异步，异步库有不少，如<code>promise</code>, <code>await</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>代码的组织</td>
+<td>nodejs与js的组织略有区别</td>
+</tr>
+<tr>
+<td></td>
+<td>包管理器及包的引入</td>
+<td><code>npm</code>, <code>yarn</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>代码的编译</td>
+<td>js不需要编译</td>
+</tr>
+<tr>
+<td></td>
+<td>面向对象编程支持(OOP)</td>
+<td>ES6的语法才支持一些<code>class</code>, <code>extends</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>语言的常见应用领域</td>
+<td>js通常用于前端，nodejs也能作一些服务端应用</td>
+</tr>
+<tr>
+<td>Builtin</td>
+<td>常用的数据结构，如列表、字典(哈希表）等</td>
+<td><code>Array</code>, <code>Object</code></td>
+</tr>
+<tr>
+<td></td>
+<td>字符串处理方法</td>
+<td>自带的功能较少，一般会用一些第三方库，如<code>dash</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>时间方法</td>
+<td>自带的功能较少，一般会用一些第三方库，如<code>moment</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>IO、网络方法</td>
+<td>nodejs才支持io，网络有不少，如<code>fetch</code>, <code>request</code>等</td>
+</tr>
+<tr>
+<td></td>
+<td>多进/线程</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>ThirdPackages</td>
+<td>常用的第三方包</td>
+<td><code>express</code>, <code>dash</code>, <code>sequelize</code>等</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>单元测试</td>
+<td><code>mocha</code>, <code>chai</code></td>
+</tr>
+<tr>
+<td></td>
+<td>数据伪造</td>
+<td><code>sinon</code></td>
+</tr>
+<tr>
+<td></td>
+<td>集成测试、代码覆盖</td>
+<td><code>mocha</code></td>
+</tr>
+<tr>
+<td>Programming</td>
+<td>IDE</td>
+<td>推荐<code>WebStorm</code></td>
+</tr>
+<tr>
+<td></td>
+<td>静态检测、自动格式化</td>
+<td><code>jslint</code>等</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>部署方式</td>
+<td>一般使用nginx做个转发就行，一般使用<code>pm2</code>守护</td>
+</tr>
+<tr>
+<td></td>
+<td>日志</td>
+<td>一般用<code>log4js</code></td>
+</tr>
+</tbody>
+</table>
+<p>除了上述的语言基本以外，JS本身分前后端，在各自的领域也相关较大，因此有些知识点下面单独列出。</p>
 <blockquote>
 <p>前端开发框架</p>
 </blockquote>
-<div class="highlight"><pre><span></span>1. jquery，封装了dom操作； reactjs, angularjs, vue等
-1. 官网下载，自己在html里&amp;lt;src&amp;gt;引入
-2. 不同的框架写法不一样，有些支持es6将这些进行打包和安装
-3. 参考各自的文档页
+<div class="highlight"><pre><span></span>1. jquery，封装了dom操作； 现在流行的如react, angularjs, vue等
 </pre></div>
 
 
@@ -271,26 +464,122 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="highlight"><pre><span></span>1. web框架: express, egg.js等
 2. ORM: sequelize, bookshelf, moogoose等
 3. 配置：config
-4. 日志: log4js等
 </pre></div>
 
 
-<blockquote>
-<p>部署工具</p>
-</blockquote>
-<div class="highlight"><pre><span></span>1. 前端一般只需要静态的服务器，开发阶段也可以使用mockserver等
-2. 进程守护等使用pm2
-</pre></div>
-
-
-<blockquote>
-<p>测试工具</p>
-</blockquote>
-<div class="highlight"><pre><span></span>mocha, chai等
-</pre></div>
-
-
-<h3>java （待完成）</h3>
+<h3>Golang</h3>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>知识点</th>
+<th>Golang(1.10.x)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic</td>
+<td>基础语法，如何运行</td>
+<td>golang是编译型语言，通常需要<code>go build</code>编译后再执行，单个文件也可以通过<code>go run</code>执行</td>
+</tr>
+<tr>
+<td></td>
+<td>编程模式（同步、异步、结构、类等)</td>
+<td>支持异步，关键词<code>defer</code>, <code>select</code></td>
+</tr>
+<tr>
+<td></td>
+<td>代码的组织</td>
+<td>web项目推荐<a href="https://github.com/golang-standards/project-layout">如此组织</a></td>
+</tr>
+<tr>
+<td></td>
+<td>包管理器及包的引入</td>
+<td>golang的包管理最开始是必须放在<code>$GOPATH/src</code>下面。现在也能使用vendor目录的机制了，自带的<code>go get</code>可以安装，也有<code>dep</code>这样的包管理工具</td>
+</tr>
+<tr>
+<td></td>
+<td>代码的编译</td>
+<td><code>go build</code></td>
+</tr>
+<tr>
+<td></td>
+<td>面向对象编程支持(OOP)</td>
+<td>golang对面向对象的支持并不多，使用<code>interface</code>, <code>struct</code>等能实现一些面向对象的特性，但是对于继承、多态等，支持并不太好。</td>
+</tr>
+<tr>
+<td></td>
+<td>语言的常见应用领域</td>
+<td>常用于web领域，对于网络请求的处理及重cpu型的计算，也有一定的优势。</td>
+</tr>
+<tr>
+<td>Builtin</td>
+<td>常用的数据结构，如列表、字典(哈希表）等</td>
+<td><code>Array</code>, <code>Map</code></td>
+</tr>
+<tr>
+<td></td>
+<td>字符串处理方法</td>
+<td><code>String</code></td>
+</tr>
+<tr>
+<td></td>
+<td>时间方法</td>
+<td><code>Date</code>, <code>Time</code></td>
+</tr>
+<tr>
+<td></td>
+<td>IO、网络方法</td>
+<td>见<code>os</code></td>
+</tr>
+<tr>
+<td></td>
+<td>多进/线程</td>
+<td>进程模块见<code>os.Process</code>, golang似乎没有对线程的支持，倒是可以使用协程代替</td>
+</tr>
+<tr>
+<td>ThirdPackages</td>
+<td>常用的第三方包</td>
+<td><code>gin</code>, <code>gorm</code>等，<a href="https://github.com/avelino/awesome-go">详细参考</a></td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>单元测试</td>
+<td><code>go test</code></td>
+</tr>
+<tr>
+<td></td>
+<td>数据伪造</td>
+<td><code>gomock</code></td>
+</tr>
+<tr>
+<td></td>
+<td>集成测试、代码覆盖</td>
+<td><code>go test</code>已支持</td>
+</tr>
+<tr>
+<td>Programming</td>
+<td>IDE</td>
+<td>推荐Goland</td>
+</tr>
+<tr>
+<td></td>
+<td>静态检测、自动格式化</td>
+<td>golang.org本身也提供了工具，<code>golint</code>, <code>goreturns</code>等</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>部署方式</td>
+<td>编译后启动可执行文件即可</td>
+</tr>
+<tr>
+<td></td>
+<td>日志</td>
+<td><code>Logger</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Java （待完成）</h3>
 <p>java在组织web服务器的代码的时候，通常会按这样的职责划分清晰：</p>
 <p>Controller —&gt; 负责接收请求，解析请求数据，调用真正的接口，并返回。
 DTO/Plain Class —&gt; DTO是数据转换类(data transfer object)，和基本的get/set
